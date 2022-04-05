@@ -1,10 +1,10 @@
-C:\Users\1\Documents\PP = Split-Path -parent $MyInvocation.MyCommand.Path // Change directory to specific folder
-# Create a PowerPoint object
+C:\Users\1\Documents\PP = Split-Path -parent $MyInvocation.MyCommand.Path 
+# Create a PowerPoint object. change to your specific folder
 $ppt_app = New-Object -ComObject PowerPoint.Application
 # Get all objects of type .ppt? in $curr_path and its subfolders
-Get-ChildItem -Path C:\Users\1\Documents\PP -Recurse -Filter *.ppt? | ForEach-Object {  // change directory to specific folder
+Get-ChildItem -Path C:\Users\1\Documents\PP -Recurse -Filter *.ppt? | ForEach-Object {  
     Write-Host "Processing" $_.FullName "..."
-    # Open it in PowerPoint
+    # Open it in PowerPoint. change path in line 5
     $document = $ppt_app.Presentations.Open($_.FullName)
     # Create a name for the PDF document;
     $pdf_filename = "$($_.DirectoryName)\$($_.BaseName).pdf"
